@@ -1,23 +1,45 @@
 local bird = {
-    x = 20,
-    y = 20,
+    x = 40,
+    vx = 0,
+    y = 100,
+    vy = 0,
     sprite = nil,
+    orientation = 0.5
 }
 
 function love.load()
-    sprite = love.graphics.newImage('assets/bird.png')
+    bird.sprite = love.graphics.newImage('assets/bird.png')
+end
+
+local SPEED = 10
+local GRAVITY = 700
+local UP = 700
+local vmax = 400
+local vmin = -300
+local gravier = 1
+
+function love.keypressed(key)
+    if key == 'up' then
+        bird.vy = bird.vy - UP
+    end
 end
 
 function love.update(dt)
+    bird.vy = bird.vy + GRAVITY * dt
+    bird.y = bird.y + bird.vy * dt * gravier
 
+    if bird.vy > vmax then
+        bird.vy = vmax
+    elseif bird.vy < vmin then
+        bird.vy = vmin
+    end
 end
 
 function love.draw()
-    love.graphics.draw(sprite, bird.x, bird.y)
-
-    love.graphics.setColor(1, 1, 1)
-    love.graphics.circle('fill', 10, 10, 10)
-    love.graphics.circle('fill', 20, 20, 10)
-    love.graphics.circle('fill', 50, 50, 10)
-    love.graphics.circle('fill', 100, 100, 10)
+    if bird.vy > 0 then
+        love.graphics.draw(bird.sprite, bird.x, bird.y, bird.orientation)
+    elseif bird.vy < 0 then
+        love.graphics.draw(bird.sprite, bird.x, bird.y, bird.orientation - 1)
+    end
+    love.graphics.print(bird.vy, 10, 10)
 end
