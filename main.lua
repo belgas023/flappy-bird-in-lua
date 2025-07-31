@@ -30,8 +30,8 @@ local function pipeSpawn()
     Pipe = {
         x = love.graphics.getWidth(),
         y = 0,
-        width = 30,
-        height = love.math.random(20, 150),
+        width = 50,
+        height = love.math.random(20, love.graphics.getHeight() / 3),
     }
     table.insert(pipes, Pipe)
 end
@@ -71,7 +71,7 @@ function love.update(dt)
     end
 
     timer = timer + 1
-    if timer == 50 then
+    if timer == 70 then
         timer = 0
         --obstacle
         pipeSpawn()
