@@ -49,7 +49,7 @@ function bird.update(dt)
 
     for i, pipe in ipairs(pipes) do
         if isColliding(bird, pipe) then
-            love.graphics.print('game over', 145, 300)
+            GameOver = true
         end
     end
 end
@@ -58,6 +58,10 @@ function bird.draw()
     love.graphics.draw(bird.sprite, bird.x, bird.y)
 
     love.graphics.print(bird.vy, 10, 10)
+
+    if GameOver then
+        love.graphics.print("Game Over", 145, 300)
+    end
 end
 
 function love.keypressed(key)
