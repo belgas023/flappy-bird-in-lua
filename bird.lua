@@ -11,11 +11,11 @@ local pipes = require('pipes')
 
 local GRAVITY = 700
 local gravier = 1
-local vmax = 400
+local vmax = 400 --constantes
 local vmin = -300
 local UP = 700
 
-local function isColliding(thing, object)
+local function isColliding(thing, object) --collisions
     local ax1 = thing.x
     local ax2 = thing.x + thing.sprite:getWidth()
     local ay1 = thing.y
@@ -49,7 +49,7 @@ function bird.update(dt)
 
     for i, pipe in ipairs(pipes) do
         if isColliding(bird, pipe) then
-            GameOver = true
+            GamesStates.switch('gameOver')
         end
     end
 end

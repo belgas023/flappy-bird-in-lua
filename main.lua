@@ -1,14 +1,13 @@
 local bird = require('bird')
-local pipes = require('pipes')
+local pipes = require('pipes') --module import
 local bg = require('background')
 
 GamesStates = {}
-
 local states = {
-    pause = require('states.pause'),
+    pause = require('states.pause'), --gamestates var
     play = require('states.play'),
+    gameOver = require('states.gameOver')
 }
-
 local current = states.play
 
 local readyToQuit = false
@@ -52,6 +51,8 @@ function love.update(dt)
         states.pause.update(dt)
     elseif current == states.play then
         states.play.update(dt)
+    elseif current == states.gameOver then
+        states.gameOver.update(dt)
     end
     love.quit()
 end
@@ -63,5 +64,7 @@ function love.draw()
     love.graphics.print(current.name, 100, 20)
     if current == states.pause then
         states.pause.draw()
+    elseif current == states.gameOver then
+        states.gameOver.draw()
     end
 end

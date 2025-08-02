@@ -35,7 +35,7 @@ end
 
 function pipes.draw()
     for i, pipe in ipairs(pipes) do
-        love.graphics.rectangle('fill', pipe.x, pipe.y, pipe.width, pipe.height)
+        love.graphics.rectangle('line', pipe.x, pipe.y, pipe.width, pipe.height)
     end
 end
 
