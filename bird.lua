@@ -1,5 +1,3 @@
-local pipes = require('pipes')
-
 local bird = { --table bird
     x = 145,
     vx = 0,
@@ -8,6 +6,8 @@ local bird = { --table bird
     sprite = nil,
     orientation = 0.5
 }
+
+local pipes = require('pipes')
 
 local GRAVITY = 700
 local gravier = 1

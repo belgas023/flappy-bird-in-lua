@@ -1,5 +1,6 @@
 local bird = require('bird')
 local pipes = require('pipes')
+local bg = require('background')
 
 GamesStates = {}
 
@@ -43,6 +44,7 @@ function love.load()
     bird.load()
     pipes.load()
     current.load()
+    bg.load()
 end
 
 function love.update(dt)
@@ -53,6 +55,7 @@ function love.update(dt)
 end
 
 function love.draw()
+    bg.draw()
     bird.draw()
     pipes.draw()
     love.graphics.print(current.name, 100, 20)

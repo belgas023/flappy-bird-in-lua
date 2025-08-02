@@ -1,4 +1,5 @@
 local pipes = {}
+
 local timer = 0
 local DelayPipe = 100
 
@@ -19,7 +20,7 @@ local function pipeMovement(dt)
 end
 
 function pipes.load()
-
+    sprite = love.graphics.newImage('assets/pipe.png')
 end
 
 function pipes.update(dt)

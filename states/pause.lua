@@ -4,6 +4,7 @@ local pause = {
 
 local bird = require('bird')
 local pipes = require('pipes')
+local bg = require('background')
 
 function pause.keypressed(key)
     if key == 'a' then
@@ -18,6 +19,7 @@ end
 function pause.update(dt)
     bird.update(dt)
     pipes.update(dt)
+    bg.update(dt)
 end
 
 function pause.draw()
