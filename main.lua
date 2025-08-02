@@ -48,8 +48,10 @@ function love.load()
 end
 
 function love.update(dt)
-    if current == states.play then
+    if current == states.pause then
         states.pause.update(dt)
+    elseif current == states.play then
+        states.play.update(dt)
     end
     love.quit()
 end

@@ -17,13 +17,11 @@ function pause.load()
 end
 
 function pause.update(dt)
-    bird.update(dt)
-    pipes.update(dt)
-    bg.update(dt)
+
 end
 
 function pause.draw()
-    love.graphics.rectangle('fill', 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
+    --love.graphics.rectangle('fill', 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
 end
 
 return pause
