@@ -58,10 +58,6 @@ function bird.draw()
     love.graphics.draw(bird.sprite, bird.x, bird.y)
 
     love.graphics.print(bird.vy, 10, 10)
-
-    if GameOver then
-        love.graphics.print("Game Over", 145, 300)
-    end
 end
 
 function bird.keypressed(key)
