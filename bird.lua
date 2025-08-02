@@ -64,7 +64,7 @@ function bird.draw()
     end
 end
 
-function love.keypressed(key)
+function bird.keypressed(key)
     if key == 'up' then
         bird.vy = -UP
     end
