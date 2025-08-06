@@ -3,12 +3,19 @@ local pipes = {}
 local timer = 0
 local DelayPipe = 100
 
+local bird = require('bird')
+
+function pipes.load()
+    --Pipe.sprite = love.graphics.newImage('assets/pipe.png')
+end
+
 local function pipeSpawn()
     Pipe = {
         x = love.graphics.getWidth(),
         y = 0,
         width = 50,
         height = love.math.random(20, love.graphics.getHeight() / 3),
+        sprite = love.graphics.newImage('assets/pipe.png')
     }
     table.insert(pipes, Pipe)
 end
@@ -19,15 +26,13 @@ local function pipeMovement(dt)
     end
 end
 
-function pipes.load()
-    sprite = love.graphics.newImage('assets/pipe.png')
-end
 
 function pipes.update(dt)
     timer = timer + 1
     if timer == DelayPipe then
         timer = 0
         pipeSpawn()
+        bird.score = bird.score + 1
     end
     pipeMovement(dt)
     print(pipes)

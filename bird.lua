@@ -4,10 +4,10 @@ local bird = { --table bird
     y = 192,
     vy = 0,
     sprite = nil,
-    orientation = 0.5
+    orientation = 0.5,
+    score = 0,
+    sfxJump = love.audio.newSource('assets/sfx/jump.wav', 'stream')
 }
-
-local pipes = require('pipes')
 
 local GRAVITY = 700
 local gravier = 1
@@ -47,22 +47,25 @@ function bird.update(dt)
         bird.vy = vmin
     end
 
-    for i, pipe in ipairs(pipes) do
-        if isColliding(bird, pipe) then
-            GamesStates.switch('gameOver')
-        end
-    end
+    --for i, pipe in ipairs(pipes) do
+    --  if isColliding(bird, pipe) then
+    --    GamesStates.switch('gameOver')
+    --end
+    --end
 end
 
 function bird.draw()
     love.graphics.draw(bird.sprite, bird.x, bird.y)
 
     love.graphics.print(bird.vy, 10, 10)
+
+    love.graphics.print(bird.score, 10, 30)
 end
 
 function bird.keypressed(key)
     if key == 'up' then
         bird.vy = -UP
+        love.audio.play(bird.sfxJump)
     end
 end
 
