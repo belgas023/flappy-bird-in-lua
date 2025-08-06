@@ -1,4 +1,5 @@
-local bird = { --table bird
+--table bird
+local bird = {
     x = 145,
     vx = 0,
     y = 192,
@@ -6,12 +7,13 @@ local bird = { --table bird
     sprite = nil,
     orientation = 0.5,
     score = 0,
-    sfxJump = love.audio.newSource('assets/sfx/jump.wav', 'stream')
+    sfxJump = love.audio.newSource('assets/sfx/jump.wav', 'static')
 }
 
+--constantes
 local GRAVITY = 700
 local gravier = 1
-local vmax = 400 --constantes
+local vmax = 400
 local vmin = -300
 local UP = 700
 

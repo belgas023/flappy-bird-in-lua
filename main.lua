@@ -1,12 +1,14 @@
+--module import
 local bird = require('bird')
-local pipes = require('pipes') --module import
+local pipes = require('pipes')
 local bg = require('background')
 
+--gamestates variables
 GamesStates = {}
 local states = {
-    pause = require('states.pause'), --gamestates var
+    pause = require('states.pause'),
     play = require('states.play'),
-    gameOver = require('states.gameOver')
+    gameOver = require('states.gameOver'),
 }
 local current = states.play
 
