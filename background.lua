@@ -20,7 +20,6 @@ end
 function background.draw()
     love.graphics.draw(background.sprite, background.x, background.y)
     love.graphics.draw(background.sprite, background.x + background.width, background.y)
-    love.graphics.circle('fill', 384, 10, 10)
 end
 
 return background

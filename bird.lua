@@ -65,6 +65,7 @@ end
 function bird.keypressed(key)
     if key == 'up' then
         bird.vy = -UP
+        bird.sfxJump:setVolume(0.6)
         love.audio.play(bird.sfxJump)
     end
 end
