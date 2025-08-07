@@ -7,7 +7,7 @@ local bird = {
     sprite = nil,
     orientation = 0.5,
     score = 0,
-    sfxJump = love.audio.newSource('assets/sfx/jump.wav', 'static')
+    sfxJump = nil
 }
 
 --constantes
@@ -37,6 +37,7 @@ end
 
 function bird.load()
     bird.sprite = love.graphics.newImage('assets/bird.png')
+    bird.sfxJump = love.audio.newSource('assets/sfx/jump.wav', 'static')
 end
 
 function bird.update(dt)
@@ -67,8 +68,9 @@ end
 function bird.keypressed(key)
     if key == 'up' then
         bird.vy = -UP
-        bird.sfxJump:setVolume(0.6)
-        love.audio.play(bird.sfxJump)
+
+        local sfx = bird.sfxJump:clone()
+        love.audio.play(sfx)
     end
 end
 
