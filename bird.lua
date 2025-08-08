@@ -17,6 +17,8 @@ local vmax = 400
 local vmin = -300
 local UP = 700
 
+
+
 local function isColliding(thing, object) --collisions
     local ax1 = thing.x
     local ax2 = thing.x + thing.sprite:getWidth()
@@ -51,9 +53,9 @@ function bird.update(dt)
     end
 
     --for i, pipe in ipairs(pipes) do
-    --  if isColliding(bird, pipe) then
-    --    GamesStates.switch('gameOver')
-    --end
+    --    if isColliding(bird, pipe) then
+    --        GamesStates.switch('gameOver')
+    --    end
     --end
 end
 
